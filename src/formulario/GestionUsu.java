@@ -1,5 +1,5 @@
-
 package formulario;
+
 
 import clases.Controlador;
 import static formulario.Ing_Usuario.control;
