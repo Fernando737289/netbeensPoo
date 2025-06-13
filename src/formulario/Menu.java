@@ -35,7 +35,7 @@ public class Menu extends javax.swing.JFrame {
         this.rolUsuario = rolUsuario;
         this.nombreUsuario = nombreUsuario;
 
-        // Mostrar/ocultar botones según el rol
+        
     }
 
     /**
