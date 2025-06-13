@@ -67,7 +67,6 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lbPermisos" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
@@ -78,11 +77,11 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="btGestiUsu" alignment="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="btBuscarUsu" alignment="0" pref="0" max="32767" attributes="0"/>
+                                              <Component id="btRegistrarUsu" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btCambiarClave" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btModificarUsu" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -110,27 +109,19 @@
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbNom" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbRol" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="lbPermisos" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbRol" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="114" max="32767" attributes="0"/>
-                  <Component id="btGestiUsu" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="145" max="32767" attributes="0"/>
+                  <Component id="btBuscarUsu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btCambiarClave" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btRegistrarUsu" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btModificarUsu" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="btCerrar" min="-2" max="-2" attributes="0"/>
@@ -187,35 +178,30 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCerrarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btGestiUsu">
+        <Component class="javax.swing.JButton" name="btBuscarUsu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gestion de Usuarios"/>
+            <Property name="text" type="java.lang.String" value="Buscar Usuario"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btGestiUsuActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btBuscarUsuActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbPermisos">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel5"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
         </Component>
-        <Component class="javax.swing.JButton" name="btCambiarClave">
+        <Component class="javax.swing.JButton" name="btModificarUsu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cambiar Clave"/>
+            <Property name="text" type="java.lang.String" value="Modificar Usuarios"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCambiarClaveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btModificarUsuActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btRegistrarUsu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar Usuario"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRegistrarUsuActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

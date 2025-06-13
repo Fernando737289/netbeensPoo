@@ -11,7 +11,7 @@ public class conexionBD2 {
     private final String nombreBD;
 
     public conexionBD2() {
-        this.nombreBD = "/home/fernando/Escritorio/proyecto POO/Costo de un sistema FM_FB_IH/Costo de un sistema/BD/AccessPOO.accdb";
+        this.nombreBD = "/home/fernando/Descargas/example/proyecto poo/netbeensPoo/BD/AccessPOO.accdb";
     }
 
     public boolean establecerConexion() {

@@ -14,9 +14,14 @@ public class Con_Usuario extends javax.swing.JFrame {
     public static Controlador control;
     public static ResultSet rs;
     
+    private String rolUsuario;
+    private String nombreUsuario;
+    
     public Con_Usuario() throws SQLException{
         initComponents();
         llenarTabla();
+        this.rolUsuario = rolUsuario;
+        this.nombreUsuario = nombreUsuario;
     }
 
     void llenarTabla() throws SQLException {
@@ -79,6 +84,11 @@ public class Con_Usuario extends javax.swing.JFrame {
         jLabel1.setText("Costo de Un Sistema.");
 
         btVolver.setText("Volver");
+        btVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVolverActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(153, 255, 204));
 
@@ -213,6 +223,12 @@ public class Con_Usuario extends javax.swing.JFrame {
             Logger.getLogger(Con_Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btBuscarActionPerformed
+
+    private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
+        Menu vent = new Menu(nombreUsuario, rolUsuario);
+        vent.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btVolverActionPerformed
 
     /**
      * @param args the command line arguments

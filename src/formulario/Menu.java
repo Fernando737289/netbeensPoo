@@ -1,53 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package formulario;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author fernando
- */
 public class Menu extends javax.swing.JFrame {
 
-    private String rolUsuario; 
+    private String rolUsuario;
     private String nombreUsuario;
-    
+
     public Menu(String nombreUsuario, String rolUsuario) {
         initComponents();
         this.setLocationRelativeTo(null);
-        
-        btGestiUsu.setVisible(true);
-        btCambiarClave.setVisible(true);
-        
-        
-         //Esta linea de codigo agrega una imagen (IPCHILE ) y cambia el icono que esta en la carpeta imagenes
+
+        btBuscarUsu.setVisible(true);
+        btModificarUsu.setVisible(true);
+
+        //Esta linea de codigo agrega una imagen (IPCHILE ) y cambia el icono que esta en la carpeta imagenes
         java.net.URL imgURL = getClass().getResource("/imagenes/Ipchilelogo.png");
-    if (imgURL != null) {
-        ImageIcon icon = new ImageIcon(imgURL);
-        jLabel5.setIcon(icon);
-    } else {
-        System.out.println("No se encontró la imagen en /imagenes/Ipchilelogo.png");
-    }
-    
+        if (imgURL != null) {
+            ImageIcon icon = new ImageIcon(imgURL);
+            jLabel5.setIcon(icon);
+        } else {
+            System.out.println("No se encontró la imagen en /imagenes/Ipchilelogo.png");
+        }
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/icono.png"));
         this.setIconImage(icon.getImage());
-        
-        
-        
-        
-        
+
         lbNom.setText(nombreUsuario);
         lbRol.setText(rolUsuario);
         this.rolUsuario = rolUsuario;
         this.nombreUsuario = nombreUsuario;
-        
+
         // Mostrar/ocultar botones según el rol
-        
     }
 
     /**
@@ -67,11 +55,10 @@ public class Menu extends javax.swing.JFrame {
         lbNom = new javax.swing.JLabel();
         lbRol = new javax.swing.JLabel();
         btCerrar = new javax.swing.JButton();
-        btGestiUsu = new javax.swing.JButton();
-        lbPermisos = new javax.swing.JLabel();
+        btBuscarUsu = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        btCambiarClave = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btModificarUsu = new javax.swing.JButton();
+        btRegistrarUsu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,26 +83,24 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btGestiUsu.setText("Gestion de Usuarios");
-        btGestiUsu.addActionListener(new java.awt.event.ActionListener() {
+        btBuscarUsu.setText("Buscar Usuario");
+        btBuscarUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btGestiUsuActionPerformed(evt);
+                btBuscarUsuActionPerformed(evt);
             }
         });
 
-        lbPermisos.setText("jLabel5");
-
-        btCambiarClave.setText("Cambiar Clave");
-        btCambiarClave.addActionListener(new java.awt.event.ActionListener() {
+        btModificarUsu.setText("Modificar Usuarios");
+        btModificarUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCambiarClaveActionPerformed(evt);
+                btModificarUsuActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Registrar Usuario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btRegistrarUsu.setText("Registrar Usuario");
+        btRegistrarUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btRegistrarUsuActionPerformed(evt);
             }
         });
 
@@ -137,7 +122,6 @@ public class Menu extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbPermisos)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -146,10 +130,10 @@ public class Menu extends javax.swing.JFrame {
                                             .addComponent(jLabel3)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(btGestiUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(btBuscarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                            .addComponent(btRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
-                                        .addComponent(btCambiarClave)))))
+                                        .addComponent(btModificarUsu)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbNom)
@@ -167,23 +151,18 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(lbNom))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(lbRol)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(lbPermisos)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
-                .addComponent(btGestiUsu)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lbRol))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(btBuscarUsu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(btCambiarClave))
+                            .addComponent(btRegistrarUsu)
+                            .addComponent(btModificarUsu))
                         .addGap(43, 43, 43)
                         .addComponent(btCerrar))
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -214,28 +193,37 @@ public class Menu extends javax.swing.JFrame {
         Login login = new Login();
         login.setVisible(true);
         this.setVisible(false);
-        
-       
     }//GEN-LAST:event_btCerrarActionPerformed
 
-    private void btGestiUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGestiUsuActionPerformed
-        if (!rolUsuario.equalsIgnoreCase("admin")) {
-            lbPermisos.setText("No tienes permisos");
-            return;
+    private void btBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuActionPerformed
+        Con_Usuario buscar;
+        try {
+            buscar = new Con_Usuario();
+            buscar.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
         
-    }//GEN-LAST:event_btGestiUsuActionPerformed
+    }//GEN-LAST:event_btBuscarUsuActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btRegistrarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarUsuActionPerformed
         Ing_Usuario re = new Ing_Usuario(nombreUsuario, rolUsuario);
         re.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btRegistrarUsuActionPerformed
 
-    private void btCambiarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCambiarClaveActionPerformed
+    private void btModificarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarUsuActionPerformed
+        Mod_Usuario modificar;
+        try {
+            modificar = new Mod_Usuario();
+            modificar.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-    }//GEN-LAST:event_btCambiarClaveActionPerformed
+    }//GEN-LAST:event_btModificarUsuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,20 +253,20 @@ public class Menu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*
+ /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new MenuCambiar Clave().setVisible(true);
             }
         });
-        */
+         */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCambiarClave;
+    private javax.swing.JButton btBuscarUsu;
     private javax.swing.JButton btCerrar;
-    private javax.swing.JButton btGestiUsu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btModificarUsu;
+    private javax.swing.JButton btRegistrarUsu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -286,7 +274,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lbNom;
-    private javax.swing.JLabel lbPermisos;
     public static javax.swing.JLabel lbRol;
     // End of variables declaration//GEN-END:variables
 }
