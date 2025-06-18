@@ -10,29 +10,27 @@ import javax.swing.ImageIcon;
 
 
 public class Login extends javax.swing.JFrame {
-        
+
     public static Controlador control;
     public static ResultSet rs;
-    
-    
-    public Login() {
-    initComponents();
-    this.setLocationRelativeTo(null); // Esta linea centra el formulario
 
-    //Estas lineas de codigo agregan una imagen (IPCHILE ) y cambia el icono que esta en la carpeta imagenes
-    java.net.URL imgURL = getClass().getResource("/imagenes/Ipchilelogo.png");
-    if (imgURL != null) {
-        ImageIcon icon = new ImageIcon(imgURL);
-        jLabel4.setIcon(icon);
-    } else {
-        System.out.println("No se encontró la imagen en /imagenes/Ipchilelogo.png");
-    }
-    
+    public Login() {
+        initComponents();
+        this.setLocationRelativeTo(null); // Esta linea centra el formulario
+
+        //Estas lineas de codigo agregan una imagen (IPCHILE ) y cambia el icono que esta en la carpeta imagenes
+        java.net.URL imgURL = getClass().getResource("/imagenes/Ipchilelogo.png");
+        if (imgURL != null) {
+            ImageIcon icon = new ImageIcon(imgURL);
+            jLabel4.setIcon(icon);
+        } else {
+            System.out.println("No se encontró la imagen en /imagenes/Ipchilelogo.png");
+        }
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/imagenes/icono.png"));
         this.setIconImage(icon.getImage());
 
-    
+
 }
 
 

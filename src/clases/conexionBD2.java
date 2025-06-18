@@ -11,7 +11,7 @@ public class conexionBD2 {
     private final String nombreBD;
 
     public conexionBD2() {
-        this.nombreBD = "/home/fernando/Descargas/example/proyecto poo/netbeensPoo/BD/AccessPOO.accdb";
+        this.nombreBD = "C:\\Users\\alumnos.republica\\Downloads\\proyectoPoo\\netbeensPoo\\BD\\AccessPOO.accdb";
     }
 
     public boolean establecerConexion() {
