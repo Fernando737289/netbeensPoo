@@ -158,8 +158,8 @@ public class Login extends javax.swing.JFrame {
         vent.setVisible(true);
         this.setVisible(false);
         } else {
-            //MENSAJE DE USUARIO NO ENCONTRADO
-        JOptionPane.showMessageDialog(null, "Usuario no registrado o contraseña incorrecta.");
+            
+            JOptionPane.showMessageDialog(null, "Usuario no registrado o contraseña incorrecta.");
         }
 
     } catch (SQLException ex) {

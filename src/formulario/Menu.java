@@ -15,8 +15,6 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
 
-        btBuscarUsu.setVisible(true);
-        btModificarUsu.setVisible(true);
 
         //Esta linea de codigo agrega una imagen (IPCHILE ) y cambia el icono que esta en la carpeta imagenes
         java.net.URL imgURL = getClass().getResource("/imagenes/Ipchilelogo.png");
@@ -34,7 +32,30 @@ public class Menu extends javax.swing.JFrame {
         lbRol.setText(rolUsuario);
         this.rolUsuario = rolUsuario;
         this.nombreUsuario = nombreUsuario;
-
+        
+        rolUsuario = rolUsuario != null ? rolUsuario.trim().toLowerCase() : "";
+  
+        switch (rolUsuario) {
+            case "admin":
+                btBuscarUsu.setEnabled(true);
+                btRegistrarUsu.setEnabled(true);
+                btModificarUsu.setEnabled(true);
+                break;  
+            case "soporte":
+                btBuscarUsu.setEnabled(true);
+                btRegistrarUsu.setEnabled(true);
+                btModificarUsu.setEnabled(false);
+                break;
+            case "usuario":
+                btBuscarUsu.setEnabled(false);
+                btRegistrarUsu.setEnabled(false);
+                btModificarUsu.setEnabled(false);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Rol no encontrado");
+                break;
+        }
+        
         
     }
 
@@ -104,7 +125,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        lbIcons.setText("hola");
+        lbIcons.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ipchilelogo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,23 +141,26 @@ public class Menu extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(255, 255, 255)
-                                    .addComponent(jLabel3))
-                                .addComponent(lbIcons, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(btCerrar))
+                                    .addComponent(jLabel3)))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(btRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btBuscarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btModificarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(btModificarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(btCerrar))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbNom)
                     .addComponent(lbRol))
                 .addGap(122, 122, 122))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbIcons)
+                .addGap(86, 86, 86))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,15 +176,15 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lbRol))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(btModificarUsu)
                 .addGap(18, 18, 18)
                 .addComponent(btBuscarUsu)
                 .addGap(22, 22, 22)
                 .addComponent(btRegistrarUsu)
-                .addGap(16, 16, 16)
+                .addGap(35, 35, 35)
                 .addComponent(lbIcons)
-                .addGap(22, 22, 22)
+                .addGap(9, 9, 9)
                 .addComponent(btCerrar)
                 .addGap(33, 33, 33))
         );
