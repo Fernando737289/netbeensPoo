@@ -146,10 +146,6 @@ public class Login extends javax.swing.JFrame {
         + "WHERE u.us_nom = '" + tfUsuario.getText() + "' "
         + "AND u.us_pwd = '" + Passw + "'";
 
-
-
-
-
         rs = control.mandarQUERY(sqlConRol);
 
         if (rs.next()) {

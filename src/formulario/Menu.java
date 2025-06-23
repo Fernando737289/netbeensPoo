@@ -218,7 +218,7 @@ public class Menu extends javax.swing.JFrame {
     private void btBuscarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarUsuActionPerformed
         Con_Usuario buscar;
         try {
-            buscar = new Con_Usuario();
+            buscar = new Con_Usuario(nombreUsuario, rolUsuario);
             buscar.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
@@ -236,7 +236,7 @@ public class Menu extends javax.swing.JFrame {
     private void btModificarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarUsuActionPerformed
         Mod_Usuario modificar;
         try {
-            modificar = new Mod_Usuario();
+            modificar = new Mod_Usuario(nombreUsuario, rolUsuario);
             modificar.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
