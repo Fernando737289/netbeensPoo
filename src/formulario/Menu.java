@@ -40,16 +40,25 @@ public class Menu extends javax.swing.JFrame {
                 btBuscarUsu.setEnabled(true);
                 btRegistrarUsu.setEnabled(true);
                 btModificarUsu.setEnabled(true);
+                btBuscarRecurso.setEnabled(true);
+                btModificarRec.setEnabled(true);
+                btRegistrarRecu.setEnabled(true);
                 break;  
             case "soporte":
                 btBuscarUsu.setEnabled(true);
                 btRegistrarUsu.setEnabled(true);
                 btModificarUsu.setEnabled(false);
+                btBuscarRecurso.setEnabled(true);
+                btModificarRec.setEnabled(false);
+                btRegistrarRecu.setEnabled(true);
                 break;
             case "usuario":
-                btBuscarUsu.setEnabled(false);
+                btBuscarUsu.setEnabled(true);
                 btRegistrarUsu.setEnabled(false);
                 btModificarUsu.setEnabled(false);
+                btBuscarRecurso.setEnabled(true);
+                btModificarRec.setEnabled(false);
+                btRegistrarRecu.setEnabled(false);
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Rol no encontrado");
@@ -80,6 +89,9 @@ public class Menu extends javax.swing.JFrame {
         btModificarUsu = new javax.swing.JButton();
         btRegistrarUsu = new javax.swing.JButton();
         lbIcons = new javax.swing.JLabel();
+        btRegistrarRecu = new javax.swing.JButton();
+        btBuscarRecurso = new javax.swing.JButton();
+        btModificarRec = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,6 +139,27 @@ public class Menu extends javax.swing.JFrame {
 
         lbIcons.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ipchilelogo.png"))); // NOI18N
 
+        btRegistrarRecu.setText("Registrar Recurso");
+        btRegistrarRecu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarRecuActionPerformed(evt);
+            }
+        });
+
+        btBuscarRecurso.setText("Buscar Recurso");
+        btBuscarRecurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarRecursoActionPerformed(evt);
+            }
+        });
+
+        btModificarRec.setText("Modificar Recurso");
+        btModificarRec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btModificarRecActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -136,19 +169,24 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(255, 255, 255)
-                                    .addComponent(jLabel3)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btBuscarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btModificarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel3))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btRegistrarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btBuscarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btModificarUsu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btRegistrarRecu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4))
+                                .addComponent(btBuscarRecurso, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(btCerrar))))
+                                .addComponent(btCerrar))
+                            .addComponent(btModificarRec, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(123, 123, 123)
                         .addComponent(jLabel1)))
@@ -160,7 +198,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lbIcons)
-                .addGap(86, 86, 86))
+                .addGap(57, 57, 57))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,19 +210,29 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(lbNom))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lbRol))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(btModificarUsu)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(lbRol)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btModificarUsu)
+                        .addGap(10, 10, 10)))
+                .addGap(8, 8, 8)
                 .addComponent(btBuscarUsu)
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addComponent(btRegistrarUsu)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(btRegistrarRecu)
+                .addGap(18, 18, 18)
+                .addComponent(btBuscarRecurso)
+                .addGap(18, 18, 18)
+                .addComponent(btModificarRec)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(lbIcons)
-                .addGap(9, 9, 9)
+                .addGap(4, 4, 4)
                 .addComponent(btCerrar)
                 .addGap(33, 33, 33))
         );
@@ -245,6 +293,35 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btModificarUsuActionPerformed
 
+    private void btRegistrarRecuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarRecuActionPerformed
+       Ing_Recurso modificar;
+       modificar = new Ing_Recurso(nombreUsuario, rolUsuario);
+       modificar.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_btRegistrarRecuActionPerformed
+
+    private void btBuscarRecursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarRecursoActionPerformed
+        Con_Recurso recurso;
+        try {
+            recurso = new Con_Recurso(nombreUsuario, rolUsuario);
+            recurso.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btBuscarRecursoActionPerformed
+
+    private void btModificarRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarRecActionPerformed
+        Mod_Recurso recurso;
+        try {
+            recurso = new Mod_Recurso(nombreUsuario, rolUsuario);
+            recurso.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btModificarRecActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -283,9 +360,12 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btBuscarRecurso;
     private javax.swing.JButton btBuscarUsu;
     private javax.swing.JButton btCerrar;
+    private javax.swing.JButton btModificarRec;
     private javax.swing.JButton btModificarUsu;
+    private javax.swing.JButton btRegistrarRecu;
     private javax.swing.JButton btRegistrarUsu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

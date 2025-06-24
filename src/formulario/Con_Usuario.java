@@ -18,7 +18,7 @@ public class Con_Usuario extends javax.swing.JFrame {
     private String rolUsuario;
     private String nombreUsuario;
     
-    public Con_Usuario(String rolUsuario, String nombreUsuario) throws SQLException{
+    public Con_Usuario(String nombreUsuario, String rolUsuario) throws SQLException{
         initComponents();
         llenarTabla();
         this.rolUsuario = rolUsuario;
@@ -95,6 +95,8 @@ public class Con_Usuario extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
+        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Costo de Un Sistema.");
 
         btVolver.setText("Volver");
@@ -106,6 +108,7 @@ public class Con_Usuario extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(153, 255, 204));
 
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre:");
 
         btBuscar.setText("Buscar");
